@@ -62,7 +62,7 @@ else if (e.target.id == "hungary"){
 }
 
 
-
+/*hoollisss*/
 console.log(`${key}: ${country}`);
 
 
