@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;      /* height and justify work together */ 
+    justify-content: center;
+    background: url("https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    overflow: hidden; /*remove the scroll bars*/
+}
+
+h2{
+    text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 3px;
+    font-size: 30px;
+    text-align: center;
+    opacity: 0.7;
+    text-shadow: 2px 5px 10px rgba(0,0,0,0.3);
+
+}
+
+/*targeting the Class Clock we use . */
+.clock{
+    display: flex;
+}
+
+.clock div{
+    margin: 5px;
+    position: relative; /*to adjust every span indepently*/
+}
+
+.clock span{
+    width: 100px;
+    height: 80px;
+    opacity: .8;
+    /*color: white;*/
+    background-color: #89bd5e;
+    display: flex; /* this works with the width and height*/
+    justify-content: center; /* center the text*/
+    align-items: center;
+    font-size: 35px;
+    text-shadow: 2px 5px 10px rgba(0,0,0,0.3);
+    
+}
+
+.clock .text{
+    height: 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: coral;
+    opacity: 0.8;
+}   
+
+/*TARGETIN THE AM SPAN*/
+.clock #ampm{
+    bottom: 0;
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    font-size: 20px;
+    background-color: coral;
+}
