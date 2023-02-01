@@ -28,6 +28,7 @@ function clock (){
         h = h - 12;
         ampm = "PM";
     }
+    h = h == 0 ? 12 : h;
     
     hourEle.innerText = h;
     minuteEle.innerText = m;
