@@ -57,48 +57,44 @@ function backgroundChange(clockArray){
 
     let intHour = parseInt(clockArray[0])
     let dayNight = clockArray[3]
-    let rgb = "black"
+    var rgb = "black"
     let element = Array.from(document.getElementsByClassName("colorChange"));
-    //*console.log(element)
 
-        
-
-       /* element.forEach(colorChange(rgb) => {
-            element.style.color = rgb;
-        })*/
-
-        function colorChange(rgb){
-            for (ind = 0; ind <= element.length; ind++) {
-                element[ind].style.color = rgb
-            }
-        }
-
-    /*colorChange()*/
-
+    function colorChange(rgb){
+        for (ind = 0; ind < element.length; ind++) {
+            element[ind].style.color = rgb;
+        }           
+    }
+    
     switch(true){
             //*SUNRISE
         case intHour >= 6 && dayNight === "AM" && intHour < 12:
             document.body.style.backgroundImage = "url(images/sunrise.jpg)";
+            rgb = "purple"
             console.log("coronao");
             break;
             //**Noon
         case intHour >= 12 && dayNight === "PM" && intHour < 2:
             document.body.style.backgroundImage = "url(images/noon.jpg)";
+            rgb = "blue"
             console.log("NOON");
             break;
             //*Afternoon
         case intHour >= 2 && dayNight === "PM" && intHour < 5:
             document.body.style.backgroundImage = "url(images/afternoon.jpg)";
+            rgb = "red"
             console.log("Afternoon");
             break;
             //*DAWN
         case intHour >= 5 && dayNight === "PM" && intHour < 7:
             document.body.style.backgroundImage = "url(images/standarddawn.jpg)";
+            rgb = "gray"
             console.log("Afternoon");
             break;
             //*7pm
         case intHour >= 7 && dayNight === "PM" && intHour < 9:
             document.body.style.backgroundImage = "url(images/7pm.jpg)";
+            rgb = "yellow"
             console.log("7pm");
             break;
             //*NIGHT
@@ -111,10 +107,11 @@ function backgroundChange(clockArray){
             //*DARKNIGHT
         case intHour >= 3 && dayNight === "AM" && intHour < 6:
             document.body.style.backgroundImage = "url(images/darknight.jpg)";
+            rgb = "white"
             console.log("DARKNIGHT");
     }
     
-//*console.log(colorChange(rgb))
+colorChange(rgb);
 
 }
 
