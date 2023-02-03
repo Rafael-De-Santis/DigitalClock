@@ -3,7 +3,7 @@ const minuteEle = document.getElementById("minutes")
 const secondEle = document.getElementById("seconds")
 const ampmEle = document.getElementById("ampm")
 
-var timeZone = new Date().getTimezoneOffset();
+var timeZone = 0;
   
 
 function clock (){
@@ -22,12 +22,13 @@ function clock (){
     let s = time.getSeconds();
  
    
-   let ampm = "AM";
+    let ampm = "AM";
 
-    if (h > 12){
+    if (h >= 12){
         h = h - 12;
         ampm = "PM";
     }
+    //hour 00 to 12
     h = h == 0 ? 12 : h;
 
     h = h < 10 ? "0" + h : h;
@@ -69,46 +70,45 @@ function backgroundChange(clockArray){
     switch(true){
             //*SUNRISE
         case intHour >= 6 && dayNight === "AM" && intHour < 12:
-            document.body.style.backgroundImage = "url(images/sunrise.jpg)";
-            rgb = "purple"
-            console.log("coronao");
+            document.body.style.backgroundImage = "url(images/1.jpg)";
+            rgb = "black"
+            console.log("6 a 12 am - sunrise");
             break;
             //**Noon
-        case intHour >= 12 && dayNight === "PM" && intHour < 2:
-            document.body.style.backgroundImage = "url(images/noon.jpg)";
-            rgb = "blue"
-            console.log("NOON");
+        case intHour == 12 && dayNight === "PM" || dayNight === "PM" && intHour < 2:
+            document.body.style.backgroundImage = "url(images/2.jpg)";
+            rgb = "white"
+            console.log("12 a 2pm - noon");
             break;
             //*Afternoon
         case intHour >= 2 && dayNight === "PM" && intHour < 5:
-            document.body.style.backgroundImage = "url(images/afternoon.jpg)";
-            rgb = "red"
-            console.log("Afternoon");
+            document.body.style.backgroundImage = "url(images/3.jpg)";
+            rgb = "white"
+            console.log("2 a 5 pm - afternoon");
             break;
             //*DAWN
         case intHour >= 5 && dayNight === "PM" && intHour < 7:
-            document.body.style.backgroundImage = "url(images/standarddawn.jpg)";
-            rgb = "gray"
-            console.log("Afternoon");
+            document.body.style.backgroundImage = "url(images/4.jpg)";
+            rgb = "white"
+            console.log("5 a 7 pm - dawn");
             break;
             //*7pm
         case intHour >= 7 && dayNight === "PM" && intHour < 9:
-            document.body.style.backgroundImage = "url(images/7pm.jpg)";
-            rgb = "yellow"
-            console.log("7pm");
+            document.body.style.backgroundImage = "url(images/5.jpg)";
+            rgb = "white"
+            console.log("7 a 9pm - 7pm");
             break;
             //*NIGHT
-        case intHour >= 9 /*&& dayNight === "PM"*/ || (intHour < 3 && dayNight === "AM"):
-            document.body.style.backgroundImage = "url(images/night.jpg)";
+        case intHour >= 9 && dayNight === "PM" && intHour < 12 || (intHour < 3 && dayNight === "AM"):
+            document.body.style.backgroundImage = "url(images/6.jpg)";
             rgb = "white"
-            /*element.style.color = "white";*/
-            console.log("NIGHT");
+            console.log("9pm a 3am - night");
             break;
             //*DARKNIGHT
         case intHour >= 3 && dayNight === "AM" && intHour < 6:
-            document.body.style.backgroundImage = "url(images/darknight.jpg)";
+            document.body.style.backgroundImage = "url(images/7.jpg)";
             rgb = "white"
-            console.log("DARKNIGHT");
+            console.log("3 a 6 am - darknight");
     }
     
 colorChange(rgb);
@@ -122,7 +122,8 @@ var buttons = document.querySelector('.buttons')
 var dropdown = document.querySelector("#countries")
 
 
-const Countries2 = {   
+const Countries2 = {
+    utc: ["England", "0", "Woh er", "Bandera"],   
     venezuela: ["Venezuela","-4","Arepa","Bandera"],
     hungria: ["Hungria","1","Gyulas","Bandera"],
     china: ["China", "8", "Aloz", "Bandera"],
@@ -130,7 +131,7 @@ const Countries2 = {
     usaeast:["USEast", "-5", "TortaCubana", "Bandera"],
     usawest:["USWest", "-8", "Tacos", "Bandera"],
     guatemala:["Guatemala", "-6", "Rafael", "Bandera"],
-    spain:["Spain", "4", "Paella", "Bandera"],
+    spain:["Spain", "1", "Paella", "Bandera"],
     canadaeast:["CanadaEast", "-4", "Poutine", "Bandera"],
     canadawest:["CanadaWest", "-8", "JapaDog", "Bandera"],
     mexico:["Mexico", "-6", "Chilaquiles", "Bandera"]
@@ -169,7 +170,7 @@ dropdown.addEventListener('change', (e) => {
 
 function load(){
 var bttons = ""
-var options =  "<option value=\"\">England</option>"
+var options =  ""; //<option style=\"pointer-events: none; cursor: default;\"; value=\"\">England</option>
 
 for (const [key, country] of Object.entries(Countries2)) {
     options += "<option value="+key+">"+country[0]+"</option>";
