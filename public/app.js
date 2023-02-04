@@ -174,7 +174,7 @@ var options =  ""; //<option style=\"pointer-events: none; cursor: default;\"; v
 
 for (const [key, country] of Object.entries(Countries2)) {
     options += "<option value="+key+">"+country[0]+"</option>";
-    bttons += "<button id="+country+">"+country[0]+"</button>";
+    bttons += "<button class=\"rounded-full\" id="+country+">"+country[0]+"</button>";
 }
 buttons.innerHTML = bttons
 dropdown.innerHTML= options

@@ -2,7 +2,7 @@
   "name": "digitalclock",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build-css" : "tailwindcss build src/styles.css -o public/styles.css"
   },
