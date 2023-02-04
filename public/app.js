@@ -121,20 +121,22 @@ backgroundChange(clockArray)
 var buttons = document.querySelector('.buttons')
 var dropdown = document.querySelector("#countries")
 
+//https://countryflagsapi.com/:filetype/:code
+const apiFlags = "https://countryflagsapi.com/png/"
 
 const Countries2 = {
-    utc: ["England", "0", "Woh er", "Bandera"],   
-    venezuela: ["Venezuela","-4","Arepa","Bandera"],
-    hungria: ["Hungria","1","Gyulas","Bandera"],
-    china: ["China", "8", "Aloz", "Bandera"],
-    chile: ["Chile", "-3", "Sopaipilla", "Bandera"],
-    usaeast:["USEast", "-5", "TortaCubana", "Bandera"],
-    usawest:["USWest", "-8", "Tacos", "Bandera"],
-    guatemala:["Guatemala", "-6", "Rafael", "Bandera"],
-    spain:["Spain", "1", "Paella", "Bandera"],
-    canadaeast:["CanadaEast", "-4", "Poutine", "Bandera"],
-    canadawest:["CanadaWest", "-8", "JapaDog", "Bandera"],
-    mexico:["Mexico", "-6", "Chilaquiles", "Bandera"]
+    utc: ["England", "0", "Tea", "gb-eng"],   
+    venezuela: ["Venezuela","-4","Arepa", "ve"],
+    hungria: ["Hungria","1","Gyulas","hu"],
+    china: ["China", "8", "Aloz", "cn"],
+    chile: ["Chile", "-3", "Sopaipilla", "cl"],
+    usaeast:["USEast", "-5", "TortaCubana", "us"],
+    usawest:["USWest", "-8", "Tacos", "us"],
+    guatemala:["Guatemala", "-6", "Rafael", "gt"],
+    spain:["Spain", "1", "Paella", "es"],
+    canadaeast:["CanadaEast", "-4", "Poutine", "ca"],
+    canadawest:["CanadaWest", "-8", "JapaDog", "ca"],
+    mexico:["Mexico", "-6", "Chilaquiles", "mx"]
 }
 
 
@@ -148,20 +150,11 @@ buttons.addEventListener('click', (e) => {
 })
 
 dropdown.addEventListener('change', (e) => {
-    //alert(e.target.value)
     let choice = e.target.value;
     let selected = Countries2[choice];
-    console.log(selected)
-    // let timeChanged = calcTimeZone(selected[0], selected[1]);
-    // //let nh = cutime.getHours();
-    // let newHour = time.getHours()
-    // let newMinutes = time.getMinutes()
-    // let newSeconds = time.getSeconds()
-    
-    
-    // alert(newHour + ":" + newMinutes + ":" + newSeconds)
-    //console.log(timeChanged)
-    //calcTimeZone(selected[1]);
+    var flags = document.getElementById("flags"); 
+    let countryFlag = selected[3];    
+    flags.src = apiFlags+selected[3];
     timeZone = selected[1];
     clock();
     clockArray = clock();
@@ -174,8 +167,9 @@ var options =  ""; //<option style=\"pointer-events: none; cursor: default;\"; v
 
 for (const [key, country] of Object.entries(Countries2)) {
     options += "<option value="+key+">"+country[0]+"</option>";
-    bttons += "<button class=\"rounded-full\" id="+country+">"+country[0]+"</button>";
+    //bttons += "<button class=\"rounded-full\" id="+country+">"+country[0]+"</button>";
 }
+
 buttons.innerHTML = bttons
 dropdown.innerHTML= options
 }
