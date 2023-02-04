@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styleold.css">
 </head>
-<body >
+<body>
     <h2 class="colorChange">Awesome Clock</h2>
     <div class="clock">
         <div>
@@ -54,21 +54,19 @@
     flex
     items-center
     whitespace-nowrap">
-     
+    
     </select>
-    <div class="grid grid-cols-2 gap-4 border border-red-600">
-        <div class="lg:flex"><!--izquierda -->
-            <div >
-                <!--crossorigin="anonymous" se usa para acceder de manera anonima a servidores https que no permitan entrada anonima-->
-                <img id="flags" crossorigin="anonymous" src="https://countryflagsapi.com/svg/gb-eng" alt="England Flag" width="100%" height="100%" />
-            </div>
+    <main class="px-16 py-6">
+        <div class="flex justify-start">
+            <img id="flags" crossorigin="anonymous" src="https://countryflagsapi.com/svg/gb-eng" alt="England Flag" width="150px" height="150px" />
+            <img id="flags" crossorigin="anonymous" src="https://countryflagsapi.com/svg/ve" alt="ve Flag" width="150px" height="150px" />
         </div>
-        <div class="lg:flex"><!--derecha -->
-            <div>
-                <img crossorigin="anonymous" src="https://countryflagsapi.com/svg/ve" alt="England Flag" width="100%" height="100%"/>
-            </div>
+        <div class="flex items-center justify-start">
+            <div class="bg-red-500 h-4 w-6"></div>
+            <div class="bg-red-500 h-8 w-6"></div>
+            <div class="bg-red-500 h-12 w-6"></div>
         </div>
-    </div>
+    </main>
 <script src="app.js"></script>
 </body>
 </html>
